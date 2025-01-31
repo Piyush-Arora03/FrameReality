@@ -9,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.framereality.R
 import com.example.framereality.R.color.colorPrimary
 
-class LoginViewActivity : AppCompatActivity() {
+class LoginEmailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
