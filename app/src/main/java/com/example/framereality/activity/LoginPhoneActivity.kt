@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.framereality.MyUtils
 import com.example.framereality.R
 import com.example.framereality.databinding.ActivityLoginPhoneBinding
 import com.google.firebase.FirebaseException
@@ -151,7 +152,7 @@ class LoginPhoneActivity : AppCompatActivity() {
         val userMap = mapOf(
             "uid" to userId,
             "phone" to (binding.PhoneCodeEt.selectedCountryCodeWithPlus + binding.PhoneEt.text.toString().trim()),
-            "userType" to "user"
+            "userType" to MyUtils.USER_TYPE_PHONE
         )
         FirebaseDatabase.getInstance().getReference("Users").child(userId).setValue(userMap)
             .addOnSuccessListener { navigateToMainScreen() }

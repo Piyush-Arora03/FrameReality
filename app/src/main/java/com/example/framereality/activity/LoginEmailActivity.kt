@@ -96,7 +96,7 @@ class LoginEmailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
 
                 // Navigate to MainActivity
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, ProfileEditActivity::class.java))
                 finish()
             }
             .addOnFailureListener { exception ->

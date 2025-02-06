@@ -37,4 +37,5 @@ play-services-auth = { module = "com.google.android.gms:play-services-auth", ver
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version = "1.8.0" }
 
