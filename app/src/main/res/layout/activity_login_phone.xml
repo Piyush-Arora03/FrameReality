@@ -60,8 +60,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.hbb20.CountryCodePicker
             android:id="@+id/PhoneCodeEt"
@@ -70,24 +72,24 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            app:ccp_showFlag="false"
             app:ccp_autoDetectCountry="true"
-            app:ccp_defaultNameCode="IN"
             app:ccp_countryAutoDetectionPref="SIM_NETWORK"
+            app:ccp_defaultNameCode="IN"
+            app:ccp_showFlag="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/PhoneTil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:hint="Enter Phone Number"
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
-            android:layout_marginEnd="10dp"
             app:boxStrokeColor="?attr/colorOnSurface"
             app:hintTextColor="?attr/colorOnSurface"
             app:layout_constraintBottom_toBottomOf="@id/PhoneCodeEt"
@@ -101,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:textColor="?attr/colorOnBackground"
-                android:textColorHint="?attr/colorOnBackground"/>
+                android:textColorHint="?attr/colorOnBackground" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -143,6 +145,7 @@
                 android:textColor="?attr/colorOnBackground"
                 android:textColorHint="?attr/colorOnBackground" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/OTPbtn"
             android:layout_width="match_parent"
@@ -155,18 +158,19 @@
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/OTPTil" />
+
         <TextView
             android:id="@+id/resend"
-            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Didn't Receive OTP : resend"
+            android:clickable="true"
+            android:text="@string/resend_otp"
             android:textColor="?attr/colorOnBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/OTPbtn"/>
+            app:layout_constraintTop_toBottomOf="@+id/OTPbtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

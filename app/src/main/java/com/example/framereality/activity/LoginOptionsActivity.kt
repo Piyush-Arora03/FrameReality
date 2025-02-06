@@ -4,17 +4,12 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.JsonToken
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.framereality.MyUtils
 import com.example.framereality.R
 import com.example.framereality.databinding.ActivityLoginOptionsBinding
-import com.example.framereality.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -25,50 +20,66 @@ import com.google.firebase.database.FirebaseDatabase
 
 class LoginOptionsActivity : AppCompatActivity() {
 
+    // View binding for accessing UI components
     private lateinit var binding : ActivityLoginOptionsBinding
 
     private val TAG = "LOGIN_OPTIONS_TAG"
 
+    // Progress dialog for showing loading indication
     private lateinit var progressDialog: ProgressDialog
 
+    // Firebase authentication instance
     private lateinit var firebaseAuth: FirebaseAuth
 
+    // Google Sign-In client instance
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginOptionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Initialize progress dialog
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
 
+        // Initialize Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // Configure Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso)
 
+        // Click listeners for different login options
         binding.skipBtn.setOnClickListener {
-            finish()
+            finish() // Close activity
         }
 
         binding.loginGoogleBtn.setOnClickListener {
-            beginLoginBtn()
+            beginLoginBtn() // Start Google Sign-In
+        }
+
+        binding.loginEmailBtn.setOnClickListener{
+            startActivity(Intent(this,LoginEmailActivity::class.java)) // Navigate to email login
+        }
+
+        binding.loginPhoneBtn.setOnClickListener{
+            startActivity(Intent(this,LoginPhoneActivity::class.java)) // Navigate to phone login
         }
     }
 
+    // Start Google Sign-In process
     private fun beginLoginBtn(){
         Log.d(TAG, "beginLoginBtn: ")
         val googleSignInIntent = mGoogleSignInClient.signInIntent
         googleSignInARL.launch(googleSignInIntent)
     }
 
+    // Handle the result from Google Sign-In activity
     private val googleSignInARL = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -85,10 +96,11 @@ class LoginOptionsActivity : AppCompatActivity() {
         }
         else{
             Log.d(TAG, "googleSignInARL: Cancelled...!")
-
             MyUtils.toast(this,"Cancelled...!")
         }
     }
+
+    // Authenticate user with Firebase using Google credentials
     private fun firebaseAuthWithGoogleAccount(idToken: String?){
         Log.d(TAG, "firebaseAuthWithGoogleAccount: idToken : $idToken")
         val credential = GoogleAuthProvider.getCredential(idToken,null)
@@ -96,9 +108,10 @@ class LoginOptionsActivity : AppCompatActivity() {
             .addOnSuccessListener { authResult ->
                 if(authResult.additionalUserInfo!!.isNewUser){
                     Log.d(TAG, "firebaseAuthWithGoogleAccount: Account Created...!")
-                    updateUserInfoDb()
+                    updateUserInfoDb() // Save user info for new users
                 }
                 else{
+                    // Existing user, navigate to MainActivity
                     startActivity(Intent(this,MainActivity::class.java))
                     finishAffinity()
                 }
@@ -109,15 +122,16 @@ class LoginOptionsActivity : AppCompatActivity() {
             }
     }
 
+    // Save new user information to Firebase Database
     private fun updateUserInfoDb(){
         Log.d(TAG, "updateUserInfoDb: ")
         progressDialog.setMessage("Saving user info...!")
         progressDialog.show()
 
-        val timestamp =MyUtils.timestamp()
-        val registeredUserUid = "${firebaseAuth.uid}"
-        val registeredUserEmail = "${firebaseAuth.currentUser!!.email}"
-        val name = "${firebaseAuth.currentUser!!.displayName}"
+        val timestamp = MyUtils.timestamp()
+        val registeredUserUid = firebaseAuth.uid ?: ""
+        val registeredUserEmail = firebaseAuth.currentUser?.email ?: ""
+        val name = firebaseAuth.currentUser?.displayName ?: ""
 
         val hashMap = HashMap<String,Any>()
         hashMap["uid"] = registeredUserUid
