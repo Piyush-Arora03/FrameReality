@@ -9,6 +9,10 @@ import com.google.firebase.Timestamp
 
 object MyUtils {
 
+    const val AD_STATUS_AVAILABLE = "AVAILABLE"
+    const val AD_STATUS_SOLD = "SOLD"
+    const val AD_STATUS_RENTED = "RENTED"
+
     const val USER_TYPE_GOOGLE = "Google"
     const val USER_TYPE_EMAIL = "Email"
     const val USER_TYPE_PHONE = "Phone"
