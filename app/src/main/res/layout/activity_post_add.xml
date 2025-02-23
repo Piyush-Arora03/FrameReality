@@ -155,19 +155,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                app:startIconDrawable="@drawable/category_gray"
                 android:hint="Property SubCategory"
                 app:boxStrokeColor="?attr/colorOnBackground"
                 app:hintTextColor="?attr/colorOnBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:boxCornerRadiusBottomEnd="8dp"
                 app:boxCornerRadiusBottomStart="8dp"
                 app:boxCornerRadiusTopEnd="8dp"
                 app:boxCornerRadiusTopStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/propertyCategoryTabLayout">
 
+                <AutoCompleteTextView
+                    android:id="@+id/propertySubcategoryACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
 
             <TextView
                 android:id="@+id/specificationTV"
@@ -262,7 +268,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sizeTIL"
+                android:id="@+id/areaSizeUnitTIL"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -275,7 +281,7 @@
                 app:layout_constraintWidth_percent="0.45">
 
                 <AutoCompleteTextView
-                    android:id="@+id/sizeACTV"
+                    android:id="@+id/areaSizeUnitACTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none" />
@@ -283,7 +289,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/locationTIL"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -295,14 +301,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/areaSizeTIL">
 
-                <AutoCompleteTextView
-                    android:id="@+id/locationACTV"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/locationET"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+
+    <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/priceTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -478,13 +485,6 @@
                 app:spanCount="4"
                 tools:listitem="@layout/row_image_picked" />
 
-            <AutoCompleteTextView
-                android:id="@+id/propertySubcategoryACTV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                tools:layout_editor_absoluteX="17dp"
-                tools:layout_editor_absoluteY="108dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submitBtn"
