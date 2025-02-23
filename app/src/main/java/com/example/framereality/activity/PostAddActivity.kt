@@ -338,7 +338,7 @@ class PostAddActivity : AppCompatActivity() {
         bathRooms = binding.bathRoomsET.text.toString().trim()
         areaSize = binding.areaSizeET.text.toString().trim()
         areaSizeUnit = binding.areaSizeUnitACTV.text.toString().trim()
-        address = binding.locationACTV.text.toString().trim()
+        address = binding.locationET.text.toString().trim()
         price = binding.priceET.text.toString().trim()
         title = binding.titleET.text.toString().trim()
         description = binding.descriptionET.text.toString().trim()
@@ -371,8 +371,8 @@ class PostAddActivity : AppCompatActivity() {
             binding.areaSizeUnitACTV.requestFocus()
         }
         else if(address.isEmpty()){
-            binding.locationACTV.error = "Pick Location...!"
-            binding.locationACTV.requestFocus()
+            binding.locationET.error = "Pick Location...!"
+            binding.locationET.requestFocus()
         }
 //        else if(areaSizeUnit.isEmpty()){
 //            binding.areaSizeUnitACTV.error = "Enter Area Size Unit...!"
