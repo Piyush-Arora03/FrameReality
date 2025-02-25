@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.framereality.MyUtils
 import com.example.framereality.R
 import com.example.framereality.databinding.ActivityMainBinding
+import com.example.framereality.fragment.HomeFragment
 import com.example.framereality.fragments.ChatsListFragment
 import com.example.framereality.fragments.FavouriteListFragment
-import com.example.framereality.fragments.HomeFragment
 import com.example.framereality.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 

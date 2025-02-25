@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/propertyCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <!-- Property Image with fixed aspect ratio -->
+        <ImageView
+            android:id="@+id/propertyImageIV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/image_gray" />
+
+        <!-- Favorite Button over the image -->
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_favorite_black"
+            app:layout_constraintTop_toTopOf="@id/propertyImageIV"
+            app:layout_constraintEnd_toEndOf="@id/propertyImageIV"
+            android:contentDescription="Favorite" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/propertyTitleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Property Title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/propertyImageIV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="8dp" />
+
+        <!-- Subcategory -->
+        <TextView
+            android:id="@+id/propertySubcategoryTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Subcategory"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            app:layout_constraintTop_toBottomOf="@id/propertyTitleTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Price label (with a background for emphasis) -->
+        <TextView
+            android:id="@+id/propertyPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs0.00"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintTop_toTopOf="@id/propertyTitleTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_price"
+            android:padding="4dp" />
+
+        <!-- Location: Only Address is shown -->
+        <TextView
+            android:id="@+id/propertyLocationTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/propertySubcategoryTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="4dp" />
+
+        <!-- Specs: Floors, Bedrooms, Bathrooms, and Area (concise summary) -->
+        <TextView
+            android:id="@+id/propertySpecsTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Floors: 2 | Beds: 3 | Baths: 2 | Area: 1200 sqft"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/propertyLocationTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="4dp" />
+
+        <!-- Description (limited to 2 lines for conciseness) -->
+        <TextView
+            android:id="@+id/propertyDescriptionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="A brief description of the property goes here. It is concise and to the point."
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/propertySpecsTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="4dp" />
+
+        <!-- Contact details: Email & Phone combined -->
+        <TextView
+            android:id="@+id/propertyContactTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Email: example@mail.com | Phone: 1234567890"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/propertyDescriptionTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -108,7 +108,7 @@ class ProfileFragment : Fragment() {
                     val name = "${snapshot.child("name").value}"
                     val phoneCode = "${snapshot.child("phoneCode").value}"
                     val phoneNumber = "${snapshot.child("phoneNumber").value}"
-                    val profileImageUrl = "${snapshot.child("profileImage").value}"
+                    val profileImageUrl = "${snapshot.child("profileImageUrl").value}"
                     var timestamp = "${snapshot.child("timestamp").value}"
                     val userType = "${snapshot.child("userType").value}"
 
@@ -154,6 +154,7 @@ class ProfileFragment : Fragment() {
                         Glide.with(mContext)
                             .load(profileImageUrl)
                             .placeholder(R.drawable.baseline_person_black)
+                            .circleCrop()
                             .into(binding.profileIv)
                     } catch (e: Exception) {
                         Log.e(TAG, "onDataChange: ", e)

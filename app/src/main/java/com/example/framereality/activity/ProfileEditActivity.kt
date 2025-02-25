@@ -95,18 +95,24 @@ class ProfileEditActivity : AppCompatActivity() {
     // Upload image to Firebase Storage
     private fun uploadProfileImageStorage() {
         Log.d(TAG, "Uploading Profile Image")
-//        showProgressDialog("Uploading Profile Image")
-
         val filePathAndName = "UserImages/${firebaseAuth.uid}"
         val ref = FirebaseStorage.getInstance().reference.child(filePathAndName)
+
+        // Show the progress dialog once at the start.
+        showProgressDialog("Uploading Profile Image...")
+
         ref.putFile(imageUri!!)
             .addOnProgressListener { snapshot ->
                 val progress = 100 * snapshot.bytesTransferred / snapshot.totalByteCount
                 Log.d(TAG, "Uploading Profile Image: Progress ${progress.toInt()}%")
+                // Instead of creating a new dialog, update the current dialog's message:
                 showProgressDialog("Progress: ${progress.toInt()}%")
             }
             .addOnSuccessListener { taskSnapshot ->
                 taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
+                    // Dismiss the upload progress dialog immediately.
+                    hideProgressDialog()
+                    // Then update the profile with the new image URL.
                     updateProfileDB(uri.toString())
                 }
             }
@@ -117,9 +123,15 @@ class ProfileEditActivity : AppCompatActivity() {
             }
     }
 
+
+
     // Update user profile in Firebase Realtime Database
     private fun updateProfileDB(imageUrl: String?) {
-        showProgressDialog("Updating user info...")
+        // Only show the progress dialog here if no image is being uploaded.
+        if (imageUrl == null) {
+            showProgressDialog("Updating user info...")
+        }
+
         val hashMap = HashMap<String, Any>().apply {
             put("name", name)
             put("dob", dob)
@@ -131,6 +143,7 @@ class ProfileEditActivity : AppCompatActivity() {
                 put("email", email)
             }
         }
+
         FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.uid!!)
             .updateChildren(hashMap)
             .addOnSuccessListener {
@@ -144,6 +157,8 @@ class ProfileEditActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error updating profile", Toast.LENGTH_SHORT).show()
             }
     }
+
+
 
     // Show image selection dialog
     private fun imagePickDialog() {
@@ -286,20 +301,27 @@ class ProfileEditActivity : AppCompatActivity() {
     /**
      * Displays a progress dialog while processing user actions.
      */
-    private fun showProgressDialog(msg : String) {
-        val builder = AlertDialog.Builder(this).setCancelable(false)
-        val layout = LinearLayout(this).apply { setPadding(50, 50, 50, 50) }
-        layout.addView(ProgressBar(this))
-        builder.setView(layout)
-            .setMessage(msg)
-        progressDialog = builder.create()
-        progressDialog.show()
+    private fun showProgressDialog(msg: String) {
+        if (::progressDialog.isInitialized && progressDialog.isShowing) {
+            // If the dialog is already showing, just update its message.
+            progressDialog.setMessage(msg)
+        } else {
+            val builder = AlertDialog.Builder(this).setCancelable(false)
+            val layout = LinearLayout(this).apply {
+                setPadding(50, 50, 50, 50)
+            }
+            layout.addView(ProgressBar(this))
+            builder.setView(layout)
+                .setMessage(msg)
+            progressDialog = builder.create()
+            progressDialog.show()
+        }
     }
 
-    /**
-     * Hides the progress dialog if it is currently showing.
-     */
     private fun hideProgressDialog() {
-        progressDialog.takeIf { it.isShowing }?.dismiss()
+        if (::progressDialog.isInitialized && progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
     }
+
 }
