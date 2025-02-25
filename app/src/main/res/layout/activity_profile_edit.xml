@@ -45,12 +45,12 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imagePickerBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="36dp"
             android:layout_marginBottom="28dp"
-            android:background="?attr/colorOnBackground"
-            android:src="@drawable/baseline_add_24"
+            android:background="@color/white"
+            android:src="@drawable/add_photo"
             app:layout_constraintBottom_toBottomOf="@+id/profileIV"
             app:layout_constraintStart_toStartOf="@+id/profileIV"
             app:shapeAppearanceOverlay="@style/ImageStyle_Circle" />

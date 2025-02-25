@@ -8,4 +8,5 @@
     <color name="colorGray01">#959595</color>
     <color name="colorGray02">#c6c6c6</color>
     <color name="black_transparent">#8B000000</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>
