@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FrameReality</string>
+    <string name="app_name">FlatsAI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="resend_otp">Didn\'t Receive OTP : <b>Resend</b></string>
