@@ -145,6 +145,7 @@ class LoginPhoneActivity : AppCompatActivity() {
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         showProgressDialog()
         firebaseAuth.signInWithCredential(credential).addOnSuccessListener {
+            hideProgressDialog()
             if (it.additionalUserInfo?.isNewUser == true) {
                 Log.d(TAG, "New user registered")
                 updateUserInfo()
