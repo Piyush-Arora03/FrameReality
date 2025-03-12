@@ -67,9 +67,9 @@ class LoginOptionsActivity : AppCompatActivity() {
             startActivity(Intent(this,LoginEmailActivity::class.java)) // Navigate to email login
         }
 
-        binding.loginPhoneBtn.setOnClickListener{
-            startActivity(Intent(this,LoginPhoneActivity::class.java)) // Navigate to phone login
-        }
+//        binding.loginPhoneBtn.setOnClickListener{
+//            startActivity(Intent(this,LoginPhoneActivity::class.java)) // Navigate to phone login
+//        }
     }
 
     // Start Google Sign-In process
