@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                R.id.item_other_services -> {
+                R.id.item_profile -> {
 
                     if (firebaseAuth.currentUser == null) {
                         MyUtils.toast(this, "Login Required...")

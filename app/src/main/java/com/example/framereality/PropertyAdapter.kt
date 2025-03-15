@@ -44,7 +44,7 @@ class PropertyAdapter(
             titleTV.text = property.title
             subcategoryTV.text = property.subcategory
 
-            priceTV.text = "₹${property.price}"
+            priceTV.text = "₹${formatPrice(property.price.toLong())}"
 
             locationTV.text = property.address
 
@@ -67,5 +67,18 @@ class PropertyAdapter(
             }
         }
 
+    }
+    private fun formatPrice(price: Long): String {
+        return if (price >= 100000) {
+            val lakhPrice = price / 100000.0
+            // If the price in lakhs is a whole number, display it without decimals.
+            if (lakhPrice % 1.0 == 0.0) {
+                "${lakhPrice.toInt()}L"
+            } else {
+                String.format("%.1fL", lakhPrice)
+            }
+        } else {
+            price.toString()
+        }
     }
 }
