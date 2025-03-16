@@ -99,9 +99,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions, suggestions, or support, please contact:
 
-- **Name:** Your Name
-- **Email:** your.email@example.com
-- **GitHub:** [@yourusername](https://github.com/yourusername)
+- **Name:** FlatsAI
+- **Email:** flatsai@gmail.com
+- **GitHub:** https://github.com/Abhiyudaya
 
 ---
 
