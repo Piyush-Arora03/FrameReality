@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1027973989814",
+    "firebase_url": "https://frame-reality-default-rtdb.firebaseio.com",
+    "project_id": "frame-reality",
+    "storage_bucket": "frame-reality.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027973989814:android:bc095507c2581e4e2e6d17",
+        "android_client_info": {
+          "package_name": "com.example.framereality"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027973989814-6a8ttaakih9adt6loe0qpac3gc2f67st.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.framereality",
+            "certificate_hash": "509c9f699c2179b93b34004de6454c6a4d1d4b98"
+          }
+        },
+        {
+          "client_id": "1027973989814-pslr4gt3gm7kosk63ueugnauge56nedl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-LAJDyHTdNQI5d6Q2zUhfeglI-Gq0ShA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027973989814-pslr4gt3gm7kosk63ueugnauge56nedl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

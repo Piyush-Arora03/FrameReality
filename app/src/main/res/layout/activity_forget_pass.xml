@@ -31,7 +31,7 @@
             app:tint="?attr/colorOnPrimary" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/shapeableImageView"
+            android:id="@+id/profileIV"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="?attr/colorOnPrimary"
@@ -55,7 +55,7 @@
             android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/profileIV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,13 +1,16 @@
 package com.example.framereality.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.framereality.MyUtils
 import com.example.framereality.R
 import com.example.framereality.databinding.ActivityMainBinding
+import com.example.framereality.fragment.HomeFragment
 import com.example.framereality.fragments.ChatsListFragment
 import com.example.framereality.fragments.FavouriteListFragment
-import com.example.framereality.fragments.HomeFragment
 import com.example.framereality.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 
@@ -32,21 +35,66 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
             val itemId = menuItem.itemId
 
-            when(itemId){
+            when(itemId) {
                 R.id.item_home -> {
                     showHomeFragment()
+                    return@setOnItemSelectedListener true
                 }
-                R.id.item_chats -> {
-                    showChatsListFragment()
+
+                R.id.item_rental -> {
+
+
+                    if (firebaseAuth.currentUser == null) {
+                        MyUtils.toast(this, "Login Required...")
+                        return@setOnItemSelectedListener false
+                    } else {
+                        showChatsListFragment()
+                        return@setOnItemSelectedListener true
+                    }
                 }
-                R.id.item_favourite -> {
-                    showFavouriteListFragment()
+
+                R.id.item_shortlist -> {
+
+                    if (firebaseAuth.currentUser == null) {
+                        MyUtils.toast(this, "Login Required...")
+                        return@setOnItemSelectedListener false
+                    } else {
+                        showFavouriteListFragment()
+                        return@setOnItemSelectedListener true
+                    }
                 }
+
                 R.id.item_profile -> {
-                    showProfileFragment()
+
+                    if (firebaseAuth.currentUser == null) {
+                        MyUtils.toast(this, "Login Required...")
+                        return@setOnItemSelectedListener false
+                    } else {
+                        showProfileFragment()
+                        return@setOnItemSelectedListener true
+                    }
+                }
+                else -> {
+                    return@setOnItemSelectedListener false
                 }
             }
-            true
+        }
+        binding.whatsapp.setOnClickListener{
+            openWhatsapp("+919031036321","Hello")
+        }
+        binding.profile.setOnClickListener{
+            showProfileFragment()
+        }
+    }
+
+    private fun openWhatsapp(phone: String, text: String) {
+        try {
+            val url = "https://api.whatsapp.com/send?phone=$phone&text=${Uri.encode(text)}"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent) // Works with WhatsApp or WhatsApp Web if not installed
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Error opening WhatsApp", Toast.LENGTH_SHORT).show()
         }
     }
 

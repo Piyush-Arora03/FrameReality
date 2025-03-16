@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorOnSurface">@color/black</item>
     </style>
 
     <style name="Theme.FrameReality" parent="Base.Theme.FrameReality" />

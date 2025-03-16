@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FrameReality</string>
+    <string name="app_name">FlatsAI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="resend_otp">Didn\'t Receive OTP : <b>Resend</b></string>
@@ -7,4 +7,8 @@
     <string name="forget_password">Forget Password? <b>Recover</b></string>
     <string name="have_account_register">Doesn\'t have an account?<b>Register</b></string>
     <string name="have_account_login">Have Account? <b>Login</b></string>
+    <string name="change_password">To Change Password you must verify,its really you by entering your current password.Your new password should be different from current password.</string>
+    <string name="category_homes">Homes</string>
+    <string name="category_plots">Plots</string>
+    <string name="category_commercial">Commercial</string>
 </resources>

@@ -2,7 +2,11 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FrameReality" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorOnSurface">@color/white</item> <!-- White text/icons on dark background -->
+        <item name="android:colorBackground">#474444</item>
     </style>
+
+    <style name="Theme.FrameReality" parent="Base.Theme.FrameReality" />
 </resources>

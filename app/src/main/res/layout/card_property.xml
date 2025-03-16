@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/propertyCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Property Image with fixed aspect ratio -->
+        <ImageView
+            android:id="@+id/propertyImageIV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/image_gray" />
+
+        <!-- Favorite Button over the image -->
+
+        <!-- Title -->
+
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/baseline_favorite_black"
+            android:contentDescription="Favourite"
+            android:src="@drawable/baseline_favorite_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/propertyPriceTV" />
+
+        <TextView
+            android:id="@+id/propertyTitleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Property Title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/propertyImageIV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="12dp" />
+
+        <!-- Subcategory -->
+
+        <!-- Price label with background for emphasis -->
+        <TextView
+            android:id="@+id/propertySubcategoryTV"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Subcategory"
+            android:textColor="#757575"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/propertyTitleTV" />
+
+        <TextView
+            android:id="@+id/propertyPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 60L"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintTop_toTopOf="@id/propertyTitleTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_price"
+            android:padding="6dp" />
+
+        <!-- Location: Address -->
+        <TextView
+            android:id="@+id/propertyLocationTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/propertySubcategoryTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="8dp" />
+
+        <!-- Specs: Floors, Beds, Baths, and Area -->
+        <TextView
+            android:id="@+id/propertySpecsTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Floors: 2 | Beds: 3 | Baths: 2 | Area: 1200 sqft"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/propertyLocationTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="8dp" />
+
+        <!-- Description (limited to 2 lines) -->
+        <TextView
+            android:id="@+id/propertyDescriptionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="A brief description of the property goes here. It is concise and to the point."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/propertySpecsTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="8dp" />
+
+        <!-- Contact details: Email & Phone -->
+        <TextView
+            android:id="@+id/propertyContactTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Email: example@mail.com | Phone: 1234567890"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/propertyDescriptionTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="8dp"
+            android:paddingBottom="12dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

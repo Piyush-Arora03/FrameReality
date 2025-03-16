@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -53,8 +54,15 @@ dependencies {
     implementation(libs.firebase.storage)
     //Firebase
     implementation(libs.play.services.auth)
+    implementation(libs.androidx.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.hbb20:ccp:2.5.0")
+    implementation(libs.ccp.v250)
+    implementation(libs.glide)
+    kapt(libs.compiler)
+
+    //Glide
+    implementation(libs.glide)
+
 }
