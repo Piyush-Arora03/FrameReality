@@ -38,7 +38,6 @@ class PropertyFavouriteAdapter(
         private val locationTV: TextView = itemView.findViewById(R.id.favPropertyLocationTV)
         private val specsTV: TextView = itemView.findViewById(R.id.favPropertySpecsTV)
         private val descriptionTV: TextView = itemView.findViewById(R.id.favPropertyDescriptionTV)
-        // Removed owner binding
         private val contactTV: TextView = itemView.findViewById(R.id.favPropertyContactTV)
         private val propertyImageIV: ImageView = itemView.findViewById(R.id.favPropertyImageIV)
         private val removeFavoriteBtn: ImageButton = itemView.findViewById(R.id.removeFavoriteBtn)
@@ -50,7 +49,7 @@ class PropertyFavouriteAdapter(
             categoryTV.text = "Category: ${property.category}"
             purposeTV.text = "Purpose: ${property.purpose}"
             locationTV.text = property.address
-            // Updated specs: removed area data
+            // Specs without area and owner info:
             specsTV.text = "Floors: ${property.floors} | Beds: ${property.bedrooms} | Baths: ${property.bathrooms}"
             descriptionTV.text = property.description
             contactTV.text = "Phone: ${property.phoneNumber}"

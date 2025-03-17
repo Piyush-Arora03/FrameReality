@@ -36,7 +36,7 @@ class PropertyHomeAdapter(
         private val locationTV: TextView = itemView.findViewById(R.id.propertyLocationTV)
         private val specsTV: TextView = itemView.findViewById(R.id.propertySpecsTV)
         private val descriptionTV: TextView = itemView.findViewById(R.id.propertyDescriptionTV)
-        private val contactTV: TextView = itemView.findViewById(R.id.propertyContactTV)
+        private val contactTV: TextView = itemView.findViewById(R.id.propertyContactTv)
         private val propertyImageIV: ImageView = itemView.findViewById(R.id.propertyImageIV)
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.favoriteBtn)
 

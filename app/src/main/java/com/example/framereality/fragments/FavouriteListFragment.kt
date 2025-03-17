@@ -41,7 +41,7 @@ class FavouriteListFragment : Fragment() {
 
         binding.favRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         favAdapter = PropertyFavouriteAdapter(requireContext(), favList) { property ->
-            // Optionally, allow removal from favorites when clicked.
+            // Optionally, remove the favorite when the remove button is clicked.
             removeFromFavorites(property)
         }
         binding.favRecyclerView.adapter = favAdapter
