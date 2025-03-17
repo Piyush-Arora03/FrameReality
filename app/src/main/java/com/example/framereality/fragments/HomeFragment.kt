@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.framereality.PropertyModel
-import com.example.framereality.adapter.PropertyAdapter
+import com.example.framereality.adapter.PropertyHomeAdapter
 import com.example.framereality.databinding.FragmentHomeBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var propertyList: ArrayList<PropertyModel>
-    private lateinit var propertyAdapter: PropertyAdapter
+    private lateinit var propertyHomeAdapter: PropertyHomeAdapter
     private lateinit var propertiesRef: DatabaseReference
 
     override fun onCreateView(
@@ -40,11 +40,11 @@ class HomeFragment : Fragment() {
 
         // Set up RecyclerView
         binding.propertyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        propertyAdapter = PropertyAdapter(requireContext(), propertyList) { property ->
+        propertyHomeAdapter = PropertyHomeAdapter(requireContext(), propertyList) { property ->
             // Handle favorite button click
             Toast.makeText(requireContext(), "${property.title} added to favorites", Toast.LENGTH_SHORT).show()
         }
-        binding.propertyRecyclerView.adapter = propertyAdapter
+        binding.propertyRecyclerView.adapter = propertyHomeAdapter
 
         fetchProperties()
     }
@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
                         propertyList.add(propertyWithImages)
                     }
                 }
-                propertyAdapter.notifyDataSetChanged()
+                propertyHomeAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {

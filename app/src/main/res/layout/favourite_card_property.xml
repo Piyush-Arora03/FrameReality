@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favouritePropertyCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Property Image -->
+        <ImageView
+            android:id="@+id/favPropertyImageIV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_gray"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/favPropertyTitleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:text="Property Title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyImageIV" />
+
+        <!-- Subcategory -->
+        <TextView
+            android:id="@+id/favPropertySubcategoryTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Subcategory"
+            android:textColor="#757575"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyTitleTV" />
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/favPropertyPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_price"
+            android:padding="6dp"
+            android:text="₹60L"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favPropertyTitleTV" />
+
+        <!-- Category (New) -->
+        <TextView
+            android:id="@+id/favPropertyCategoryTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Category: Residential"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyPriceTV" />
+
+        <!-- Purpose (New) -->
+        <TextView
+            android:id="@+id/favPropertyPurposeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Purpose: For Rent"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyCategoryTV" />
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/favPropertyLocationTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingTop="8dp"
+            android:text="Address"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyPurposeTV" />
+
+        <!-- Specs (Modified to remove area) -->
+        <TextView
+            android:id="@+id/favPropertySpecsTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="4dp"
+            android:text="Floors: 2 | Beds: 3 | Baths: 2"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyLocationTV" />
+
+        <!-- Description (New) -->
+        <TextView
+            android:id="@+id/favPropertyDescriptionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="A brief description of the property goes here, providing additional details and highlights."
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertySpecsTV" />
+
+        <!-- Contact -->
+        <TextView
+            android:id="@+id/favPropertyContactTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:layout_marginTop="6dp"
+            android:text="Phone: 1234567890"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyDescriptionTV" />
+
+        <!-- Favorite Button (Remove) -->
+        <ImageButton
+            android:id="@+id/removeFavoriteBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/flag_transparent"
+            android:contentDescription="Remove Favourite"
+            android:src="@drawable/close_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favPropertyPriceTV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

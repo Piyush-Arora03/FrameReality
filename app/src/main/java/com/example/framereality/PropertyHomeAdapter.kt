@@ -12,11 +12,11 @@ import com.bumptech.glide.Glide
 import com.example.framereality.PropertyModel
 import com.example.framereality.R
 
-class PropertyAdapter(
+class PropertyHomeAdapter(
     private val context: Context,
     private val propertyList: ArrayList<PropertyModel>,
     private val onFavoriteClick: (PropertyModel) -> Unit
-) : RecyclerView.Adapter<PropertyAdapter.PropertyViewHolder>() {
+) : RecyclerView.Adapter<PropertyHomeAdapter.PropertyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PropertyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.card_property, parent, false)
