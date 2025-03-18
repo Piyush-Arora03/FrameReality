@@ -85,4 +85,5 @@ class FavouriteListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
