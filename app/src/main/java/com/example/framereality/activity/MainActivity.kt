@@ -9,9 +9,9 @@ import com.example.framereality.MyUtils
 import com.example.framereality.R
 import com.example.framereality.databinding.ActivityMainBinding
 import com.example.framereality.fragment.HomeFragment
-import com.example.framereality.fragments.ChatsListFragment
 import com.example.framereality.fragments.FavouriteListFragment
 import com.example.framereality.fragments.ProfileFragment
+import com.example.framereality.fragments.RentalListFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showChatsListFragment(){
         binding.toolbarTitleTv.text = "Chats"
-        val chatsListFragment = ChatsListFragment()
+        val chatsListFragment = RentalListFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id,chatsListFragment,"ChatsList")
         fragmentTransaction.commit()
