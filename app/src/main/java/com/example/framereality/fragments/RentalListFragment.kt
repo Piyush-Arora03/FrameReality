@@ -1,4 +1,4 @@
-package com.example.framereality.fragment
+package com.example.framereality.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.framereality.PropertyModel
 import com.example.framereality.adapter.PropertyAdapter
-import com.example.framereality.databinding.FragmentHomeBinding
+import com.example.framereality.databinding.FragmentRentalListBinding
 import com.google.firebase.database.*
 
-class HomeFragment : Fragment() {
+class RentalListFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentRentalListBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var propertyList: ArrayList<PropertyModel>
@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentRentalListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,16 +39,16 @@ class HomeFragment : Fragment() {
         }
         binding.propertyRecyclerView.adapter = propertyAdapter
 
-        fetchPropertiesForSale()
+        fetchPropertiesForRent()
     }
 
-    private fun fetchPropertiesForSale() {
+    private fun fetchPropertiesForRent() {
         propertiesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 propertyList.clear()
                 for (propertySnapshot in snapshot.children) {
                     val property = propertySnapshot.getValue(PropertyModel::class.java)
-                    if (property != null && property.purpose == "Sell") {  // Filter "Sell" properties
+                    if (property != null && property.purpose == "Rent") {  // Filter "Rent" properties
                         val imageUrls = ArrayList<String>()
                         val imagesSnapshot = propertySnapshot.child("Images")
                         for (imageChild in imagesSnapshot.children) {
