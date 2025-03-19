@@ -18,7 +18,7 @@
 
     <item
         android:id="@+id/item_shortlist"
-        android:title="Shortlist"
-        android:icon="@drawable/baseline_favorite_black"/>
+        android:title="Other Services"
+        android:icon="@drawable/baseline_room_service_24"/>
 
 </menu>

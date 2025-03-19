@@ -1,6 +1,7 @@
 package com.example.framereality.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,7 +48,7 @@ class PropertyHomeAdapter(
             priceTV.text = "₹${formatPrice(property.price.toLong())}"
 
             locationTV.text = property.address
-
+            Log.d("area",property.areaSizeUnit)
             specsTV.text = "Floors: ${property.floors} | Beds: ${property.bedrooms} | Baths: ${property.bathrooms} | Area: ${property.areaSizeUnit}"
             descriptionTV.text = property.description
             contactTV.text = "Email: ${property.email} | Phone: ${property.phoneNumber}"
