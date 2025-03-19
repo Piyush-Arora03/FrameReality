@@ -10,6 +10,7 @@ import com.example.framereality.R
 import com.example.framereality.databinding.ActivityMainBinding
 import com.example.framereality.fragment.HomeFragment
 import com.example.framereality.fragments.FavouriteListFragment
+import com.example.framereality.fragments.OtherServices
 import com.example.framereality.fragments.ProfileFragment
 import com.example.framereality.fragments.RentalListFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -42,8 +43,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.item_rental -> {
-
-
                     if (firebaseAuth.currentUser == null) {
                         MyUtils.toast(this, "Login Required...")
                         return@setOnItemSelectedListener false
@@ -59,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                         MyUtils.toast(this, "Login Required...")
                         return@setOnItemSelectedListener false
                     } else {
-                        showFavouriteListFragment()
+                        showOtherServicesFragment()
                         return@setOnItemSelectedListener true
                     }
                 }
@@ -85,6 +84,9 @@ class MainActivity : AppCompatActivity() {
         binding.profile.setOnClickListener{
             showProfileFragment()
         }
+        binding.shortList.setOnClickListener{
+            showFavouriteListFragment()
+        }
     }
 
     private fun openWhatsapp(phone: String, text: String) {
@@ -99,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showHomeFragment(){
-        binding.toolbarTitleTv.text = "Home"
+        binding.toolbarTitleTv.text = "Buy"
         val homeFragment = HomeFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id,homeFragment,"Home")
@@ -107,7 +109,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showChatsListFragment(){
-        binding.toolbarTitleTv.text = "Chats"
+        binding.toolbarTitleTv.text = "Rentals"
         val chatsListFragment = RentalListFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id,chatsListFragment,"ChatsList")
@@ -115,7 +117,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFavouriteListFragment(){
-        binding.toolbarTitleTv.text = "Favourites"
+        binding.toolbarTitleTv.text = "Shortlist"
         val favouriteListFragment = FavouriteListFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id,favouriteListFragment,"FavouriteList")
@@ -127,6 +129,13 @@ class MainActivity : AppCompatActivity() {
         val profileFragment = ProfileFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id,profileFragment,"Profile")
+        fragmentTransaction.commit()
+    }
+    private fun showOtherServicesFragment(){
+        binding.toolbarTitleTv.text = "Other Services"
+        val otherServicesFragment = OtherServices()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(binding.fragmentsFl.id,otherServicesFragment,"Profile")
         fragmentTransaction.commit()
     }
 

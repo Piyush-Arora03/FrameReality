@@ -331,13 +331,12 @@ class PostAddActivity : AppCompatActivity() {
 
     private fun validateData(){
         Log.d(TAG, "validateData: ")
-
         subcategory = binding.propertySubcategoryACTV.text.toString().trim()
         floors = binding.floorsEt.text.toString().trim()
         bedRooms = binding.bedRoomsET.text.toString().trim()
         bathRooms = binding.bathRoomsET.text.toString().trim()
         areaSize = binding.areaSizeET.text.toString().trim()
-        areaSizeUnit = binding.areaSizeUnitACTV.text.toString().trim()
+        areaSizeUnit = binding.areaSizeET.text.toString()+" "+binding.areaSizeUnitACTV.text.toString().trim()
         address = binding.locationET.text.toString().trim()
         price = binding.priceET.text.toString().trim()
         title = binding.titleET.text.toString().trim()
@@ -345,7 +344,6 @@ class PostAddActivity : AppCompatActivity() {
         email = binding.emailET.text.toString().trim()
         phoneCode = binding.phoneCodeET.selectedCountryCodeWithPlus
         phoneNumber = binding.phoneNumberEt.text.toString().trim()
-
         if(subcategory.isEmpty()){
             binding.propertySubcategoryACTV.error = "Choose Subcategory...!"
             binding.propertySubcategoryACTV.requestFocus()
