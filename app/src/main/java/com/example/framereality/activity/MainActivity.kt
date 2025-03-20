@@ -1,5 +1,6 @@
 package com.example.framereality.activity
 
+import GiftFragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.framereality.MyUtils
 import com.example.framereality.R
+import com.example.framereality.assets.Helper
 import com.example.framereality.databinding.ActivityMainBinding
 import com.example.framereality.fragment.HomeFragment
 import com.example.framereality.fragments.FavouriteListFragment
@@ -17,14 +19,13 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
     private lateinit var firebaseAuth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Helper.loadGifts(this)
         firebaseAuth = FirebaseAuth.getInstance()
         //Check if user is logged in
         if(firebaseAuth.currentUser == null){
@@ -63,13 +64,13 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                R.id.item_profile -> {
+                R.id.gift -> {
 
                     if (firebaseAuth.currentUser == null) {
                         MyUtils.toast(this, "Login Required...")
                         return@setOnItemSelectedListener false
                     } else {
-                        showProfileFragment()
+                        showGiftsFragment()
                         return@setOnItemSelectedListener true
                     }
                 }
@@ -104,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarTitleTv.text = "Buy"
         val homeFragment = HomeFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.fragmentsFl.id,homeFragment,"Home")
+        fragmentTransaction.replace(binding.fragmentsFl.id,homeFragment,"Buy")
         fragmentTransaction.commit()
     }
 
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarTitleTv.text = "Rentals"
         val chatsListFragment = RentalListFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.fragmentsFl.id,chatsListFragment,"ChatsList")
+        fragmentTransaction.replace(binding.fragmentsFl.id,chatsListFragment,"Rentals")
         fragmentTransaction.commit()
     }
 
@@ -120,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarTitleTv.text = "Shortlist"
         val favouriteListFragment = FavouriteListFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.fragmentsFl.id,favouriteListFragment,"FavouriteList")
+        fragmentTransaction.replace(binding.fragmentsFl.id,favouriteListFragment,"Shortlist")
         fragmentTransaction.commit()
     }
 
@@ -135,7 +136,14 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarTitleTv.text = "Other Services"
         val otherServicesFragment = OtherServices()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.fragmentsFl.id,otherServicesFragment,"Profile")
+        fragmentTransaction.replace(binding.fragmentsFl.id,otherServicesFragment,"Other Services")
+        fragmentTransaction.commit()
+    }
+    private fun showGiftsFragment(){
+        binding.toolbarTitleTv.text = "Gifts"
+        val GiftFragment = GiftFragment()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(binding.fragmentsFl.id,GiftFragment,"Gift")
         fragmentTransaction.commit()
     }
 
