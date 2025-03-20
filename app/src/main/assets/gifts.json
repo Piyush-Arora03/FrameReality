@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Concrete Mixer Machine",
+    "image": "https://images.pexels.com/photos/209862/pexels-photo-209862.jpeg",
+    "price": 75000
+  },
+  {
+    "id": 2,
+    "name": "Brick Making Machine",
+    "image": "https://images.pexels.com/photos/532253/pexels-photo-532253.jpeg",
+    "price": 450000
+  },
+  {
+    "id": 3,
+    "name": "Construction Safety Helmet",
+    "image": "https://images.pexels.com/photos/209271/pexels-photo-209271.jpeg",
+    "price": 750
+  },
+  {
+    "id": 4,
+    "name": "Excavator Model",
+    "image": "https://images.pexels.com/photos/3252260/pexels-photo-3252260.jpeg",
+    "price": 1250000
+  },
+  {
+    "id": 5,
+    "name": "Safety Shoes for Construction",
+    "image": "https://images.pexels.com/photos/1048030/pexels-photo-1048030.jpeg",
+    "price": 2500
+  },
+  {
+    "id": 6,
+    "name": "Architect Scale Ruler",
+    "image": "https://images.pexels.com/photos/376052/pexels-photo-376052.jpeg",
+    "price": 500
+  },
+  {
+    "id": 7,
+    "name": "Building Model Set",
+    "image": "https://images.pexels.com/photos/4210636/pexels-photo-4210636.jpeg",
+    "price": 4000
+  },
+  {
+    "id": 8,
+    "name": "Construction Tool Kit",
+    "image": "https://images.pexels.com/photos/209215/pexels-photo-209215.jpeg",
+    "price": 8500
+  },
+  {
+    "id": 9,
+    "name": "Dumpy Level Machine",
+    "image": "https://images.pexels.com/photos/159244/pexels-photo-159244.jpeg",
+    "price": 6500
+  },
+  {
+    "id": 10,
+    "name": "Steel Measuring Tape",
+    "image": "https://images.pexels.com/photos/296888/pexels-photo-296888.jpeg",
+    "price": 300
+  },
+  {
+    "id": 11,
+    "name": "Portable Rebar Cutter",
+    "image": "https://images.pexels.com/photos/48889/pexels-photo-48889.jpeg",
+    "price": 55000
+  },
+  {
+    "id": 12,
+    "name": "Welding Machine",
+    "image": "https://images.pexels.com/photos/159220/welding-metal-melting-industrial-159220.jpeg",
+    "price": 30000
+  },
+  {
+    "id": 13,
+    "name": "Hand Gloves for Construction",
+    "image": "https://images.pexels.com/photos/38158/gloves-rubber-yellow-hand-protection-38158.jpeg",
+    "price": 200
+  },
+  {
+    "id": 14,
+    "name": "Laser Leveling Tool",
+    "image": "https://images.pexels.com/photos/159149/pexels-photo-159149.jpeg",
+    "price": 7000
+  },
+  {
+    "id": 15,
+    "name": "Scaffolding Set",
+    "image": "https://images.pexels.com/photos/209219/pexels-photo-209219.jpeg",
+    "price": 15000
+  },
+  {
+    "id": 16,
+    "name": "Portable Concrete Vibrator",
+    "image": "https://images.pexels.com/photos/3252296/pexels-photo-3252296.jpeg",
+    "price": 18000
+  },
+  {
+    "id": 17,
+    "name": "Earth Compactor Machine",
+    "image": "https://images.pexels.com/photos/3153199/pexels-photo-3153199.jpeg",
+    "price": 95000
+  },
+  {
+    "id": 18,
+    "name": "Mini Crane for Construction",
+    "image": "https://images.pexels.com/photos/2792185/pexels-photo-2792185.jpeg",
+    "price": 125000
+  },
+  {
+    "id": 19,
+    "name": "Paver Block Moulds",
+    "image": "https://images.pexels.com/photos/1001153/pexels-photo-1001153.jpeg",
+    "price": 2500
+  },
+  {
+    "id": 20,
+    "name": "Portable Site Office Cabin",
+    "image": "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg",
+    "price": 550000
+  }
+]
