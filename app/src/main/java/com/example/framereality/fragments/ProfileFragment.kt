@@ -14,6 +14,7 @@ import com.example.framereality.MyUtils
 import com.example.framereality.R
 import com.example.framereality.activity.MainActivity
 import com.example.framereality.activity.PostAddActivity
+import com.example.framereality.activity.PostItemActivity
 import com.example.framereality.activity.ProfileEditActivity
 import com.example.framereality.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -90,6 +91,11 @@ class ProfileFragment : Fragment() {
         }
         binding.postAdBtn.setOnClickListener{
             startActivity(Intent(mContext, PostAddActivity::class.java))
+        }
+
+        binding.addGiftItemBtn.setOnClickListener {
+            val intent = Intent(mContext, PostItemActivity::class.java)
+            startActivity(intent)
         }
     }
 

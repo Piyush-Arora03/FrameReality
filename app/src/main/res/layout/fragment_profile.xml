@@ -168,50 +168,103 @@
                     android:layout_height="wrap_content"
                     android:text="Preferences"
                     android:layout_marginBottom="5dp"/>
-                
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/postPropertyAdCv"
+
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    app:cardCornerRadius="10dp"
-                    app:contentPadding="15dp">
+                    android:orientation="vertical">
 
-                    <RelativeLayout
+                    <!-- Existing Property Ad Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/postPropertyAdCv"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="10dp"
+                        app:contentPadding="15dp">
 
-                        <ImageView
-                            android:id="@+id/postAdIconIv"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="15dp"
-                            android:src="@drawable/building_asset01"
-                            android:adjustViewBounds="true"/>
-
-                        <TextView
-                            android:id="@+id/postAdTitleTv"
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/postAdIconIv"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_vertical"
-                            android:text="Looking to sell or rent out your property>"/>
+                            android:layout_height="wrap_content">
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/postAdBtn"
+                            <ImageView
+                                android:id="@+id/postAdIconIv"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/building_asset01"
+                                android:adjustViewBounds="true" />
+
+                            <TextView
+                                android:id="@+id/postAdTitleTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/postAdIconIv"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:text="Looking to sell or rent out your property" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/postAdBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/postAdIconIv"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@id/postAdTitleTv"
+                                android:text="Post an Ad" />
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- New Gift Item Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/addGiftItemCv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="10dp"
+                        app:contentPadding="15dp">
+
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/postAdIconIv"
-                            android:layout_marginTop="10dp"
-                            android:text="Post an Ad"
-                            android:layout_below="@id/postAdTitleTv"/>
+                            android:layout_height="wrap_content">
 
-                    </RelativeLayout>
+                            <ImageView
+                                android:id="@+id/giftIconIv"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/baseline_card_giftcard_24"
+                                android:adjustViewBounds="true" />
 
-                </com.google.android.material.card.MaterialCardView>
-                
+                            <TextView
+                                android:id="@+id/giftTitleTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/giftIconIv"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:text="Add Gift Items"
+                                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/addGiftItemBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/giftIconIv"
+                                android:layout_below="@id/giftTitleTv"
+                                android:layout_marginTop="10dp"
+                                android:text="Add Gift Item" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/logoutCv"
                     android:layout_width="match_parent"
