@@ -37,7 +37,6 @@ class PropertyHomeAdapter(
         private val locationTV: TextView = itemView.findViewById(R.id.propertyLocationTV)
         private val specsTV: TextView = itemView.findViewById(R.id.propertySpecsTV)
         private val descriptionTV: TextView = itemView.findViewById(R.id.propertyDescriptionTV)
-        private val contactTV: TextView = itemView.findViewById(R.id.propertyContactTv)
         private val propertyImageIV: ImageView = itemView.findViewById(R.id.propertyImageIV)
         private val favoriteBtn: ImageButton = itemView.findViewById(R.id.favoriteBtn)
 
@@ -51,7 +50,6 @@ class PropertyHomeAdapter(
             Log.d("area",property.areaSizeUnit)
             specsTV.text = "Floors: ${property.floors} | Beds: ${property.bedrooms} | Baths: ${property.bathrooms} | Area: ${property.areaSizeUnit}"
             descriptionTV.text = property.description
-            contactTV.text = "Email: ${property.email} | Phone: ${property.phoneNumber}"
 
             // Load the image using Glide
             if (property.imageUrls.isNotEmpty()) {
