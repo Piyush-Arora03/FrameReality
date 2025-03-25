@@ -1,6 +1,5 @@
 package com.example.framereality.activity
 
-import GiftFragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +10,7 @@ import com.example.framereality.R
 import com.example.framereality.assets.Helper
 import com.example.framereality.databinding.ActivityMainBinding
 import com.example.framereality.fragment.HomeFragment
+import com.example.framereality.fragment.ItemsFragment
 import com.example.framereality.fragments.FavouriteListFragment
 import com.example.framereality.fragments.OtherServices
 import com.example.framereality.fragments.ProfileFragment
@@ -141,9 +141,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun showGiftsFragment(){
         binding.toolbarTitleTv.text = "Gifts"
-        val GiftFragment = GiftFragment()
+        val ItemsFragment = ItemsFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.fragmentsFl.id,GiftFragment,"Gift")
+        fragmentTransaction.replace(binding.fragmentsFl.id,ItemsFragment,"Gift")
         fragmentTransaction.commit()
     }
 
