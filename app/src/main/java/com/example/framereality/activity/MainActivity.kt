@@ -12,6 +12,7 @@ import com.example.framereality.databinding.ActivityMainBinding
 import com.example.framereality.fragment.HomeFragment
 import com.example.framereality.fragment.ItemsFragment
 import com.example.framereality.fragments.FavouriteListFragment
+import com.example.framereality.fragments.GiftCartFragment
 import com.example.framereality.fragments.OtherServices
 import com.example.framereality.fragments.ProfileFragment
 import com.example.framereality.fragments.RentalListFragment
@@ -88,6 +89,17 @@ class MainActivity : AppCompatActivity() {
         binding.shortList.setOnClickListener{
             showFavouriteListFragment()
         }
+        binding.shortList2.setOnClickListener{
+            showGiftCartFragment()
+        }
+    }
+
+    private fun showGiftCartFragment() {
+        binding.toolbarTitleTv.text = "Gifts Cart"
+        val ItemsFragment = GiftCartFragment()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(binding.fragmentsFl.id,ItemsFragment,"Gift")
+        fragmentTransaction.commit()
     }
 
     private fun openWhatsapp(phone: String, text: String) {

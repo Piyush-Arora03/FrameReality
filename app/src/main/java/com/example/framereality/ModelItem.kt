@@ -8,7 +8,7 @@ data class ModelItem(
     val description: String = "",
     val price: Double = 0.0,
     val timestamp: Long = 0L,
-    val isFavourite: Boolean = false,
+    var isFavourite: Boolean = false,
     // Now each key in 'images' maps to a ModelImage object
-    val Images: Map<String, ModelImage>? = null
+    var Images: Map<String, ModelImage>? = null
 )
