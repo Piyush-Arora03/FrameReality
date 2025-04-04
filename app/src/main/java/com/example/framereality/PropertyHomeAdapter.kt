@@ -1,7 +1,6 @@
 package com.example.framereality.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +14,10 @@ import com.example.framereality.R
 
 class PropertyHomeAdapter(
     private val context: Context,
-    private val propertyList: ArrayList<PropertyModel>,
     private val onFavoriteClick: (PropertyModel) -> Unit
 ) : RecyclerView.Adapter<PropertyHomeAdapter.PropertyViewHolder>() {
+
+    private val displayedList = ArrayList<PropertyModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PropertyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.card_property, parent, false)
@@ -25,10 +25,10 @@ class PropertyHomeAdapter(
     }
 
     override fun onBindViewHolder(holder: PropertyViewHolder, position: Int) {
-        holder.bind(propertyList[position])
+        holder.bind(displayedList[position])
     }
 
-    override fun getItemCount(): Int = propertyList.size
+    override fun getItemCount(): Int = displayedList.size
 
     inner class PropertyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTV: TextView = itemView.findViewById(R.id.propertyTitleTV)
@@ -43,15 +43,12 @@ class PropertyHomeAdapter(
         fun bind(property: PropertyModel) {
             titleTV.text = property.title
             subcategoryTV.text = property.subcategory
-
             priceTV.text = "₹${formatPrice(property.price.toLong())}"
-
             locationTV.text = property.address
-            Log.d("area",property.areaSizeUnit)
-            specsTV.text = "Floors: ${property.floors} | Beds: ${property.bedrooms} | Baths: ${property.bathrooms} | Area: ${property.areaSizeUnit}"
+            specsTV.text =
+                "Floors: ${property.floors} | Beds: ${property.bedrooms} | Baths: ${property.bathrooms} | Area: ${property.areaSizeUnit}"
             descriptionTV.text = property.description
 
-            // Load the image using Glide
             if (property.imageUrls.isNotEmpty()) {
                 Glide.with(context)
                     .load(property.imageUrls[0])
@@ -65,12 +62,11 @@ class PropertyHomeAdapter(
                 onFavoriteClick(property)
             }
         }
-
     }
+
     private fun formatPrice(price: Long): String {
         return if (price >= 100000) {
             val lakhPrice = price / 100000.0
-            // If the price in lakhs is a whole number, display it without decimals.
             if (lakhPrice % 1.0 == 0.0) {
                 "${lakhPrice.toInt()}L"
             } else {
@@ -79,5 +75,11 @@ class PropertyHomeAdapter(
         } else {
             price.toString()
         }
+    }
+
+    fun updateData(newList: List<PropertyModel>) {
+        displayedList.clear()
+        displayedList.addAll(newList)
+        notifyDataSetChanged()
     }
 }

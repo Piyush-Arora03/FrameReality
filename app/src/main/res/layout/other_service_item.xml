@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/propertyCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Property Image with fixed aspect ratio -->
+        <ImageView
+            android:id="@+id/propertyImageIV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/image_gray" />
+
+        <!-- Title -->
+
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/baseline_favorite_black"
+            android:contentDescription="Favourite"
+            android:src="@drawable/baseline_favorite_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/propertyPriceTV" />
+
+        <TextView
+            android:id="@+id/propertyTitleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Service Title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/propertyImageIV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="12dp" />
+        <!-- Price label with background for emphasis -->
+        <TextView
+            android:id="@+id/propertyCategoryTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="category"
+            android:textColor="#757575"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/propertyPriceTV"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/propertyTitleTV" />
+
+        <TextView
+            android:id="@+id/propertyPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_price"
+            android:padding="6dp"
+            android:text="Rs 60/Day"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/propertyCategoryTV"
+            app:layout_constraintTop_toBottomOf="@+id/propertyTitleTV" />
+        <TextView
+            android:id="@+id/propertyDescriptionTV"
+            android:layout_width="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_height="wrap_content"
+            android:text="A brief description of the service goes here. It is concise and to the point."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/propertyCategoryTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/favoriteBtn"
+            android:paddingTop="8dp" />
+
+<!--         Contact details: Email & Phone -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
